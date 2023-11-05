@@ -1,0 +1,78 @@
+# Server
+server:
+  port: 1996
+  tomcat:
+    accept-count: 1000
+  host: 127.0.0.1
+
+
+config:
+  mail:
+    username: tnr-support@sphinxjsc.com
+    pathDomain: https://tnre-admin-test.netlify.app/
+    timeout: 30
+  valid:
+    time-minutes-valid: 5 # valid in 2 minutes
+    otp-valid-seconds: 300
+
+# Spring
+spring:
+  application:
+    name: VSHIPPING-ADMIN
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 100MB
+  zipkin:
+    enabled: false
+  messages:
+    basename: messages
+    encoding: UTF-8
+  jackson:
+    time-zone: Asia/Ho_Chi_Minh
+    date-format: dd/MM/yyyy HH:mm:ss
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://210.245.85.229:3316/vship_shipping
+    username: root
+    password: Thanhbipkeo@123
+    hikari:
+      connection-timeout: 5000
+      maximum-pool-size: 20
+  jpa:
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.MySQLDialect
+        enable_lazy_load_no_trans: true
+    hibernate:
+      ddl-auto: none
+    database: mysql
+    show-sql: false
+  #send mail config
+  mail:
+    default-encoding: UTF-8
+    default-website: https://tng-holdings.vn/
+    host: smtp.office365.com
+    port: 587
+    username: tnr-support@sphinxjsc.com
+    password: Sphinx@1234
+    protocol: smtp
+    tls: true
+    properties.mail.smtp:
+      auth: true
+      starttls.enable: true
+      ssl.trust: smtp.office365.com
+    test-connection: false
+    list-receiver: LanLNT1@sphinxjsc.com, xuanduongtnteco@gmail.com, duyhoangdominic@gmail.com, AnDT@sphinxjsc.com, TuPA@sphinxjsc.com,minhnh@sphinxjsc.com, longnd@sphinxjsc.com,hieuvt@sphinxjsc.com,dongvd@sphinxjsc.com, tungnh@sphinxjsc.com, trungdq@sphinxjsc.com, duongtt@sphinxjsc.com, DungDV1@sphinxjsc.com, hungran.test@gmail.com
+    send-only-sphinx: true
+
+# Services
+rest:
+  connectTimeout: 30s
+  readTimeout: 30s
+
+jwt:
+  prefix: Bearer
+  secret: shhhhh
+  validity: 86400
